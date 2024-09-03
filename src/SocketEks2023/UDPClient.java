@@ -21,7 +21,7 @@ class UDPClient {
 		clientSocket.receive(receivePacket);
 
 		String modifiedSentence = new String(receivePacket.getData());
-		System.out.println("FROM SERVER:" + modifiedSentence);
+		System.out.println("FROM SERVER:" + modifiedSentence.trim());
 		clientSocket.close();
 	}
 }
