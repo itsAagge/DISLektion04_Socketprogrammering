@@ -9,12 +9,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Socket socket;
         String name = "August";
-        String ip = "10.10.133.42";
+        String ip = "";
         int port = 6789;
 
         if (ip.isEmpty()) {
             ServerSocket welcomSocket = new ServerSocket(port);
             socket = welcomSocket.accept();
+            sendConfirmationServer(socket);
         } else {
             socket = new Socket(ip, port);
             sendConfirmationClient(socket, name);

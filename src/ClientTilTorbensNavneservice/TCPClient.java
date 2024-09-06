@@ -1,4 +1,4 @@
-package SocketEks2023;
+package ClientTilTorbensNavneservice;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -16,17 +16,17 @@ public class TCPClient {
 		
 		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
-		Socket clientSocket = new Socket("10.10.131.221", 6789);
+		Socket clientSocket = new Socket("192.168.0.133", 7777);
 		DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		while (true) {
+		//while (true) {
             sentence = inFromUser.readLine();
             outToServer.writeBytes(sentence + '\n');
-			if (sentence.equals("stop")) break;
+			//if (sentence.equals("stop")) break;
             modifiedSentence = inFromServer.readLine();
             System.out.println("FROM SERVER: " + modifiedSentence);
-			if (modifiedSentence.equals("stop")) break;
-        }
+			//if (modifiedSentence.equals("stop")) break;
+        //}
 		clientSocket.close();
 			
 	}
